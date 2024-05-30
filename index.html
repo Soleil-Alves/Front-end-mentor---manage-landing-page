@@ -21,6 +21,14 @@
   <div class="headContainer">
     <a href="#"><img src="./Images/logo.svg" alt="logo"></a>
     <nav class="main-Nav">
+      <ul class="sidebar">
+        <button onclick=hideSidebar()><img src="./images/icon-hamburger.svg"></button>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Product</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Community</a></li>
+      </ul>
       <ul class="navList" aria-label="primary">
         <li><a href="#">Pricing</a></li>
         <li><a href="#">Product</a></li>
@@ -29,8 +37,10 @@
         <li><a href="#">Community</a></li>
       </ul>
     </nav>
+    <button class="icon-hamburger"onclick=showSidebar()><img src="./images/icon-hamburger.svg"></button>
     <button class="button"><a href="#">Get Started</a></button>
-  </div>
+ 
+</div>
 </header>
 
 <main>
@@ -122,10 +132,10 @@
     </div>
 
     <div class="dots">
-      <span class="dot" onclick="currentCard(1)"></span>
-      <span class="dot" onclick="currentCard(2)"></span>
-      <span class="dot" onclick="currentCard(3)"></span>
-      <span class="dot" onclick="currentCard(4)"></span>
+      <span class="dot" onclick="cardAtual(1)"></span>
+      <span class="dot" onclick="cardAtual(2)"></span>
+      <span class="dot" onclick="cardAtual(3)"></span>
+      <span class="dot" onclick="cardAtual(4)"></span>
     </div>
 
     <button class="carousel-Button"><a href="#">Get Started</a></button>

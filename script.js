@@ -1,62 +1,70 @@
-const form = document.getElementById('emailForm');
-const email = document.getElementById('emailField');
+const sidebar = document.querySelector('.sidebar')
+
+function showSidebar() {
+    sidebar.style.display = 'flex'
+}
+
+function hideSidebar() {
+    sidebar.style.display = 'none'
+}
+
+
+const emailField = document.getElementById('emailField');
+const form = document.getElementById('emailForm')
 const small = form.querySelector('small');
 
-function checkEmail(input) {
+
+function checaEmail(){
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(input.value.trim())) {
-        showSuccess()
+        mostraSucesso()
     } else {
-        showError('Please insert a valid email')
+        mostraErro('Please insert a valid email')
     }
 };
-function showError(message) {
-    form.classList.add('error')
+
+function mostraErro(message) {
+    form.classList.add('erro')
     small.innerText = message
 };
-function showSuccess() {
+function mostraSucesso() {
     form.className = 'email-form'
     small.innerText = ''
     email.value = ''
 };
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     if (email.value != '') {
-        checkEmail(email)
+        checaEmail(email)
     } else {
-        showError('Email field is empty')
+        mostraErro('O campo não foi preenchido')
     }
-
 });
 
+
+
+let cardIndex = 1;
 const cards = document.getElementsByClassName('card');
 const dots = document.getElementsByClassName('dot');
-let cardIndex = 1;
 
-showCards(cardIndex);
+mostraCards(cardIndex);
 
-// dot image controls
-
-function currentCard(n) {
-    showCards(cardIndex = n)
+function cardAtual(n) {
+    mostraCards(cardIndex = n)
 }
 
-//  cycle through cards
 
-function nextCard() {
+function proxCard() {
     cardIndex++;
 
     if (cardIndex > cards.length) {
-        cardIndex = 1
+        cardIndex = 1;
     }
 
-    showCards(cardIndex)
+    mostraCards(cardIndex)
 }
-
-// show selected Card
-
-function showCards(n) {
+function mostraCards(n) {
     let i;
 
     if (n > cards.length) {
@@ -74,6 +82,6 @@ function showCards(n) {
     cards[cardIndex - 1].classList.add('active-card')
     dots[cardIndex - 1].classList.add('active')
     
-}
+};
 
-setInterval(nextCard, 15000);
+setInterval(proxCard, 15000);
